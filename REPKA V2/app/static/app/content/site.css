@@ -1,0 +1,81 @@
+﻿body {
+    background: linear-gradient(to bottom right, yellow, grey, green);
+    background-attachment: fixed;
+    margin: 10px;
+}
+
+.navbar {
+    border-radius: 10px 10px 10px 10px;
+}
+
+.nav-link {
+    color: white;
+
+}
+
+.nav-link:hover {
+     color: yellow;
+ }
+
+.navbar-btn,
+.btn-nav {
+    background-color: dodgerblue;
+    border-radius: 20px;
+    color: yellow;
+}
+
+.navbar-btn,
+.btn-nav:active {
+    border-radius: 20px;
+    background: transparent;
+    color: white;
+    border-color: #4676d7;
+}
+
+.home-info {
+    background-color: aqua;
+    margin: 10px;
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.row {
+    margin: 5px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/* styles for validation helpers */
+.field-validation-error {
+    color: #b94a48;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error {
+    border: 1px solid #b94a48;
+}
+
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}
+
+.validation-summary-errors {
+    color: #b94a48;
+}
+
+.validation-summary-valid {
+    display: none;
+}
