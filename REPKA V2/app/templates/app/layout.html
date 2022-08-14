@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -7,43 +7,77 @@
     {% load staticfiles %}
     <link rel="stylesheet" type="text/css" href="{% static 'app/content/bootstrap.min.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'app/content/site.css' %}" />
-    <link rel="icon" href="{% static 'app/images/logo.jpg' %}">
+    <link rel="icon" href="{% static 'app/images/logo.png' %}">
     <script src="{% static 'app/scripts/modernizr-2.6.2.js' %}"></script>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand">
-                <img src="{% static 'app/images/logo.jpg' %}" width="30" height="30"
-                     class="d-inline-block align-top" alt="Картинка репки"> REPKA
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-sm bg-dark">
+            <a class="navbar-brand hamburger">
+                <img src="{% static 'app/images/logo.png' %}" width="30" height="30"
+                     class="d-inline-block align-top" alt="Картинка репки"> REPKA<i class="fas fa-bars"></i>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <nav class="nav" id="RNAVS">
+                <nav class="nav navbar-nav" id="RNAVS">
                     <a class="nav-link" href="{% url 'home' %}">Главная</a>
-                    <a class="nav-link" href="{% url 'about' %}">Справка</a>
                     <a class="nav-link" href="{% url 'contact' %}">Лента</a>
+                    <a class="nav-link" href="{% url 'about' %}">Форум</a>
                 </nav>
             </div>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">{% include 'app/loginpartial.html' %}</div>
-
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <div class="nav navbar-nav navbar-btn">
+                    <a class="btn btn-nav" onclick="goBack()"><img src="{% static 'app/images/back_page.png' %}" width="25" height="25" class="d-inline-block align-top" alt=""></a>
+                </div>
+                {% include 'app/loginpartial.html' %}
+                <div class="nav navbar-nav navbar-btn">
+                    <a class="btn btn-nav" href="{% url 'about' %}"><img src="{% static 'app/images/about_logo.webp' %}" width="25" height="25" class="d-inline-block align-top" alt=""> Справка</a>
+                </div>
+            </div>
+        </nav>
+        <div class="row">
+            {% if user.is_authenticated %}
+            <div class="col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                <nav class="navbar navbar-expand-sm px-0 navbar-dark bg-dark flex-row flex-nowrap">
+                    <div class="navbar-collapse collapse" id="navbarWEX">
+                        <div class="nav flex-sm-column flex-row">
+                            <a class="nav-item nav-link active" href="#"><img src="{% static 'app/images/human_logo_def.png' %}" width="25" height="25" class="d-inline-block align-top" alt=""> Мои данные</a>
+                            <a href="#" class="nav-item nav-link"><img src="{% static 'app/images/messenger_logo.png' %}" width="25" height="25" class="d-inline-block align-top" alt=""> Чат</a>
+                            <a href="#" class="nav-item nav-link"><img src="{% static 'app/images/messenger_logo.png' %}" width="25" height="25" class="d-inline-block align-top" alt=""> Друзья</a>
+                            <a href="#" class="nav-item nav-link"><img src="{% static 'app/images/social_comm.png' %}" width="25" height="25" class="d-inline-block align-top" alt=""> Подписки</a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            {% endif %}
+            <div class="col-12 col-sm-10 col-md-9 col-lg-8 col-xl-8 body-content Absolute-Center">
+                {% block content %}{% endblock %}
+                <hr />
+                <footer>
+                    <p>&copy; {{ year }} - REPKA Group</p>
+                </footer>
+            </div>
         </div>
-    </nav>
-
-    <div class="container body-content">
-        {% block content %}{% endblock %}
-        <hr />
-        <footer>
-            <p>&copy; {{ year }} - REPKA Group</p>
-        </footer>
     </div>
+
+
 
     <script src="{% static 'app/scripts/jquery-3.4.1.slim.min.js' %}"></script>
     <script src="{% static 'app/scripts/popper.min.js' %}"></script>
     <script src="{% static 'app/scripts/bootstrap.min.js' %}"></script>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+
+        var hamburger = document.querySelector(".hamburger");
+        hamburger.addEventListener("click", function () {
+            document.querySelector("body").classList.toggle("active");
+        })
+    </script>
     {% block scripts %}{% endblock %}
 
 </body>

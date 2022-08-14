@@ -1,16 +1,17 @@
-﻿{% if user.is_authenticated %}
+{% if user.is_authenticated %}
 <form id="logoutForm" action="/logout/" method="post" class="navbar-right">
     {% csrf_token %}
     <ul class="nav navbar-nav navbar-btn">
-        <li><span class="navbar-brand">{{ user.username }}!</span></li>
-        <li><a href="javascript:document.getElementById('logoutForm').submit()">Выйти</a></li>
+        <li><span class="navbar-brand">{{ user.username }}</span></li>
+        <li><a class="btn btn-nav" href="javascript:document.getElementById('logoutForm').submit()">Выйти</a></li>
     </ul>
 </form>
 
 {% else %}
 
+{% load staticfiles %}
 <div class="nav navbar-nav navbar-btn">
-    <a class="btn btn-nav" href="{% url 'login' %}">Авторизация</a>
+    <a class="btn btn-nav" href="{% url 'login' %}"><img src="{% static 'app/images/humanauth.png' %}" width="25" height="25" class="d-inline-block align-top" alt=""> Авторизация</a>
 </div>
 
 {% endif %}

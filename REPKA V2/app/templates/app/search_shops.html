@@ -1,0 +1,29 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+
+
+<div class="row">
+    <div class="col">
+        <section id="SearchForm">
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <h3 class="text-center control-label">Найти магазин</h3>
+                    <div class="Relative-Center">
+                        {{ form.name_sity }}
+                        <input type="submit" value="Поиск">
+                    </div>
+                </div>
+            </form>
+        </section>
+
+
+    </div>
+</div>
+
+
+{% block info %}{% endblock %}
+
+
+{% endblock %}

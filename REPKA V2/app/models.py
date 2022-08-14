@@ -3,5 +3,13 @@ Definition of models.
 """
 
 from django.db import models
+   
+class Shops(models.Model):
+    name = models.CharField(max_length=30)
 
-# Create your models here.
+    class Meta:
+        ordering = ["-name"]
+
+    def __str__(self):
+        return self.name
+

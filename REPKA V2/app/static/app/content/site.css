@@ -1,11 +1,14 @@
-﻿body {
+html {
+}
+
+body {
     background: linear-gradient(to bottom right, yellow, grey, green);
     background-attachment: fixed;
-    margin: 10px;
 }
 
 .navbar {
     border-radius: 10px 10px 10px 10px;
+    margin: 5px
 }
 
 .nav-link {
@@ -19,40 +22,114 @@
 
 .navbar-btn,
 .btn-nav {
-    background-color: dodgerblue;
+    background-color: wheat;
     border-radius: 20px;
-    color: yellow;
+    margin-right: 5px;
+    color: black;
+}
+
+#SearchForm input[type=text],
+#SearchForm input[type=submit] {
+    border: 1px solid #999;
+    border-radius: 5px;
+    -webkit-appearance: none;
+    padding: 5px;
+    width: 85%;
+}
+#SearchForm input[type=submit] {
+    width: 9%;
+    min-width: 60px;
 }
 
 .navbar-btn,
 .btn-nav:active {
     border-radius: 20px;
     background: transparent;
-    color: white;
+    color: wheat;
     border-color: #4676d7;
+    
+}
+
+.navbar a {
+    color: wheat;
+}
+
+.navbar-btn a {
+    color: black;
+}
+
+.jumbotron {
+
+}
+
+.container {
+    margin-left: 0;
+    margin-right: ;
+    justify-items: center;
 }
 
 .home-info {
     background-color: aqua;
-    margin: 10px;
+    margin-bottom: 10px;
     background: rgba(255, 255, 255, 0.4);
 }
 
 .row {
-    margin: 5px;
+}
+
+.Absolute-Center {
+    margin: 0 auto;
+    position: absolute;
+    overflow: auto;
+    left: 0;
+    right: 0;
+}
+
+.Relative-Center {
+    margin: 0 auto;
+    position: relative;
+    overflow: auto;
+    left: 0;
+    right: 0;
 }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
+    margin-top: 10px;
 }
+
+.col-md {
+    display:grid;
+    background-color: aqua;
+    margin: 5px;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 5px;
+    padding: 10px;
+    justify-items:center; 
+    align-content:center;
+}
+
+btn-default {
+    border: 2px solid black;
+}
+
+.lead {
+    align-self: center;
+}
+
+.search_shops {
+    background: rgba(255, 255, 255, 0.4);
+    padding: 5px;
+    border-radius: 5px;
+}
+
 
 /* Set width on the form input elements since they're 100% wide by default */
 input,
 select,
 textarea {
-    max-width: 280px;
 }
 
 /* styles for validation helpers */

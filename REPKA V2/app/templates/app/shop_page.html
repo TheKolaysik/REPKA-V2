@@ -1,0 +1,28 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+
+<div class="border border-dark">
+    <div>
+        <p>
+            <font face="Comic Sans MS" color="#000000">{{shop['properties']['name']}}</font>
+        </p>
+        <p>
+            Адрес - {{shop['properties']['CompanyMetaData']['address']}}, Время
+            работы - {{shop['properties']['CompanyMetaData']['Hours']['text']}}
+        </p>
+        <p>
+            Телефон -
+            {{shop['properties']['CompanyMetaData']['Phones'][0]['formatted']}}
+        </p>
+        <a href="{{shop['properties']['CompanyMetaData']['url']}}">
+            {{shop['properties']['CompanyMetaData']['url']}}
+        </a>
+    </div>
+
+</div>
+<div class="col-md6 border border-dark" align="center">
+    <img src="../static/img/map.png" alt="Карта Яндекса">
+</div>
+
+{% endblock %}

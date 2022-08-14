@@ -1,7 +1,8 @@
-"""
+﻿"""
 Definition of forms.
 """
 
+from cProfile import label
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm
 from django.utils.translation import ugettext_lazy as _
@@ -11,8 +12,15 @@ class BootstrapAuthenticationForm(AuthenticationForm):
     username = forms.CharField(max_length=254,
                                widget=forms.TextInput({
                                    'class': 'form-control',
-                                   'placeholder': 'User name'}))
+                                   'placeholder': 'Имя пользователя'}))
     password = forms.CharField(label=_("Password"),
                                widget=forms.PasswordInput({
                                    'class': 'form-control',
-                                   'placeholder':'Password'}))
+                                   'placeholder':'Пароль'}))
+
+
+class Searching_shops(forms.Form):
+    name_sity = forms.CharField(max_length=100)
+
+    
+

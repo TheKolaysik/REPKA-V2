@@ -1,4 +1,4 @@
-"""
+﻿"""
 Definition of urls for REPKA_V2.
 """
 
@@ -7,7 +7,6 @@ from django.urls import path
 from django.contrib import admin
 from django.contrib.auth.views import LoginView, LogoutView
 from app import forms, views
-
 
 urlpatterns = [
     path('', views.home, name='home'),
@@ -20,11 +19,13 @@ urlpatterns = [
              authentication_form=forms.BootstrapAuthenticationForm,
              extra_context=
              {
-                 'title': 'Log in',
+                 'title': 'Авторизация',
                  'year' : datetime.now().year,
              }
          ),
          name='login'),
+    path('search_shops/', views.search_shops, name='search_shops'),
     path('logout/', LogoutView.as_view(next_page='/'), name='logout'),
     path('admin/', admin.site.urls),
+    path('error/', views.error, name='error'),
 ]
